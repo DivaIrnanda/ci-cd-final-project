@@ -12,7 +12,6 @@ jobs:
     container: python:3.9-slim
     
     steps:
-      # --- EXERCISE 1 ---
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -24,4 +23,5 @@ jobs:
       # --- EXERCISE 2 ---
       - name: Lint with flake8
         run: |
-          flake8 service
+          flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
